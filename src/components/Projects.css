@@ -1,0 +1,145 @@
+.projects {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+}
+
+.stages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.stage-card {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    border: 1px solid var(--color-border);
+    min-height: 350px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.stage-card:hover {
+    border-color: var(--color-accent-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.15);
+}
+
+.stage-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: #0f0f0f;
+}
+
+.stage-id {
+    font-family: var(--font-mono);
+    color: var(--color-accent-primary);
+    font-size: 0.875rem;
+}
+
+.stage-difficulty {
+    font-family: var(--font-primary);
+    color: white;
+    font-weight: 700;
+}
+
+.stage-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.stage-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    z-index: 2;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.stage-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent-primary);
+    margin-bottom: 1rem;
+    transition: width 0.3s ease;
+}
+
+.stage-card:hover .stage-divider {
+    width: 100px;
+}
+
+.stage-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.stage-tech {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    border: 1px solid var(--color-border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.stage-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+    background: #0f0f0f;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.stage-type {
+    color: var(--color-text-tertiary);
+}
+
+.stage-status {
+    color: var(--color-accent-primary);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.stage-card:hover .stage-status {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--color-accent-primary);
+}
+
+/* Diagonal scanning line on hover */
+.stage-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 0, 51, 0.05),
+            transparent);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.stage-card:hover::after {
+    left: 100%;
+    transition: 0.5s ease-in-out;
+}

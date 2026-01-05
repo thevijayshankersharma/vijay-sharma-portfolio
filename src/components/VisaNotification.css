@@ -1,0 +1,98 @@
+.visa-notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    perspective: 1000px;
+    pointer-events: none;
+}
+
+.visa-card {
+    background: #000;
+    width: 320px;
+    border: 2px solid var(--color-border);
+    padding: 1.5rem;
+    color: white;
+    font-family: var(--font-mono);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slide-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: right center;
+}
+
+.visa-card.success {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
+}
+
+.visa-card.error {
+    border-color: #fff;
+}
+
+.visa-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.visa-body {
+    margin-bottom: 1.5rem;
+}
+
+.visa-message {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.visa-subtext {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.visa-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    border-top: 1px dashed #333;
+    padding-top: 0.5rem;
+}
+
+.visa-days {
+    color: var(--color-accent-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(100%) rotateY(-20deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .visa-notification-container {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+    }
+
+    .visa-card {
+        width: 100%;
+    }
+}
