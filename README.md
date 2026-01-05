@@ -2,8 +2,6 @@
 
 A high-performance, immersive developer portfolio built with **React** and **Vite**. This project merges a gritty, "Alice in Borderland" inspired aesthetic with a professional, recruiter-friendly content structure.
 
-![Project Preview](https://via.placeholder.com/800x400?text=Portfolio+Preview)
-
 ## ✨ key Features
 
 ### 🎨 Visual Immersion
