@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useNotification } from './VisaNotification';
 import './Contact.css';
 
@@ -34,12 +35,12 @@ const Contact = () => {
     return (
         <section id="contact" className="contact section">
             <div className="container contact-container">
-                <div className="contact-header">
+                <div className="contact-header" data-aos="fade-up">
                     <h2 className="section-title">GET IN TOUCH</h2>
                     <p className="contact-subtitle">Let's build something together.</p>
                 </div>
 
-                <div className="direct-contact">
+                <div className="direct-contact" data-aos="fade-right">
                     <div className="contact-channel">
                         <span className="channel-label">EMAIL:</span>
                         <span className="channel-value">vijayshankersharma658@gmail.com</span>
@@ -50,7 +51,14 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <form className="terminal-form" onSubmit={handleSubmit}>
+                <motion.form
+                    className="terminal-form"
+                    onSubmit={handleSubmit}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className="form-group">
                         <label className="terminal-label">NAME:</label>
                         <input
@@ -93,9 +101,9 @@ const Contact = () => {
                     <button type="submit" className="btn btn-primary submit-btn">
                         {status === 'sending' ? 'SENDING...' : status === 'success' ? 'SENT' : 'SEND MESSAGE'}
                     </button>
-                </form>
+                </motion.form>
 
-                <div className="contact-socials">
+                <div className="contact-socials" data-aos="fade-up">
                     <a href="#" className="social-link">GITHUB</a>
                     <a href="#" className="social-link">LINKEDIN</a>
                 </div>

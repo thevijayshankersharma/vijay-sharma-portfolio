@@ -1,13 +1,9 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Skills.css';
 
 const Skills = () => {
-    const [activeSuit, setActiveSuit] = useState('clubs'); // Backend focus
-
-    // Suit Mappings:
-    // Spades ♠️: Frontend 
-    // Clubs ♣️: Backend
-    // Diamonds ♦️: Core Concepts & Tools
+    const [activeSuit, setActiveSuit] = useState('clubs');
 
     const skillSearch = {
         spades: [
@@ -33,7 +29,7 @@ const Skills = () => {
     return (
         <section id="skills" className="skills section">
             <div className="container">
-                <div className="section-header">
+                <div className="section-header" data-aos="fade-up">
                     <h2 className="section-title">TECHNICAL SKILLS</h2>
                     <div className="suit-selector">
                         <button
@@ -51,30 +47,54 @@ const Skills = () => {
                     </div>
                 </div>
 
-                <div className="card-table">
-                    {skillSearch[activeSuit].map((skill, index) => (
-                        <div
-                            key={skill.name}
-                            className={`playing-card ${skill.suit === '♦' ? 'red-suit' : 'black-suit'}`}
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                <motion.div
+                    className="card-table"
+                    layout
+                >
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeSuit}
+                            className="card-grid-inner"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4 }}
+                            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', width: '100%' }}
                         >
-                            <div className="card-corner top-left">
-                                <span className="card-value">{skill.value}</span>
-                                <span className="card-suit">{skill.suit}</span>
-                            </div>
+                            {skillSearch[activeSuit].map((skill, index) => (
+                                <motion.div
+                                    key={skill.name}
+                                    className={`playing-card ${skill.suit === '♦' ? 'red-suit' : 'black-suit'}`}
+                                    whileHover={{
+                                        y: -15,
+                                        rotateZ: index % 2 === 0 ? 3 : -3,
+                                        scale: 1.05,
+                                        boxShadow: "0 15px 40px rgba(255, 0, 51, 0.4)",
+                                        transition: { type: "spring", stiffness: 400, damping: 10 }
+                                    }}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: index * 0.05, type: "spring", stiffness: 200 }}
+                                >
+                                    <div className="card-corner top-left">
+                                        <span className="card-value">{skill.value}</span>
+                                        <span className="card-suit">{skill.suit}</span>
+                                    </div>
 
-                            <div className="card-center">
-                                <span className="skill-name">{skill.name}</span>
-                                <span className="skill-type">{skill.type}</span>
-                            </div>
+                                    <div className="card-center">
+                                        <span className="skill-name">{skill.name}</span>
+                                        <span className="skill-type">{skill.type}</span>
+                                    </div>
 
-                            <div className="card-corner bottom-right">
-                                <span className="card-value">{skill.value}</span>
-                                <span className="card-suit">{skill.suit}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                                    <div className="card-corner bottom-right">
+                                        <span className="card-value">{skill.value}</span>
+                                        <span className="card-suit">{skill.suit}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </motion.div>
             </div>
         </section>
     );

@@ -7,7 +7,8 @@
 .suit-selector {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-md);
+    gap: 2rem;
+    /* Increased spacing */
     margin-bottom: var(--spacing-2xl);
     flex-wrap: wrap;
 }
@@ -16,20 +17,21 @@
     background: transparent;
     border: 1px solid var(--color-border);
     color: var(--color-text-tertiary);
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 2rem;
+    /* Slightly larger padding */
     font-family: var(--font-mono);
     cursor: pointer;
     transition: all var(--transition-base);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .suit-btn:hover,
 .suit-btn.active {
     border-color: var(--color-accent-primary);
     color: var(--color-text-primary);
-    background: rgba(255, 0, 51, 0.1);
-    box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+    background: rgba(255, 0, 51, 0.15);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
 }
 
 .card-table {
@@ -42,26 +44,18 @@
 .playing-card {
     position: relative;
     aspect-ratio: 2.5/3.5;
-    /* Vertical playing card ratio */
-    background: #151515;
+    background: #111;
     border: 2px solid var(--color-border);
-    border-radius: 8px;
-    /* Slightly rounded like cards */
+    border-radius: 4px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.4s ease;
     user-select: none;
     cursor: pointer;
 }
 
-.playing-card:hover {
-    transform: translateY(-10px) rotateY(10deg);
-    border-color: var(--color-text-primary);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-}
+/* Removed individual .playing-card:hover CSS to avoid conflict with Framer Motion */
 
 .playing-card.red-suit:hover {
     border-color: var(--color-accent-primary);

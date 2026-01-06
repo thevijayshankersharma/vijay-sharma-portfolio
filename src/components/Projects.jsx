@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import './Projects.css';
 
 const Projects = () => {
@@ -34,14 +35,27 @@ const Projects = () => {
     return (
         <section id="projects" className="projects section">
             <div className="container">
-                <div className="section-header">
+                <div className="section-header" data-aos="fade-up">
                     <h2 className="section-title">PROJECTS</h2>
                     <p className="section-subtitle">SELECTED WORKS</p>
                 </div>
 
                 <div className="stages-grid">
                     {projects.map((project, index) => (
-                        <div key={index} className="stage-card">
+                        <motion.div
+                            key={index}
+                            className="stage-card"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                            whileHover={{
+                                scale: 1.05,
+                                rotateY: index % 2 === 0 ? 8 : -8,
+                                rotateX: 4,
+                                z: 40,
+                                transition: { type: "spring", stiffness: 400, damping: 15 }
+                            }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        >
                             <div className="stage-header">
                                 <span className="stage-id">{project.id}</span>
                                 <span className="stage-difficulty">{project.type}</span>
@@ -59,7 +73,7 @@ const Projects = () => {
                                 <span className="stage-type">{project.type}</span>
                                 <span className="stage-status">{project.status}</span>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
