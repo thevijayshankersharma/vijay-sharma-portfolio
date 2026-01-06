@@ -121,10 +121,14 @@
 
 @media (max-width: 768px) {
     .loader-text {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        padding: 0 1rem;
+        line-height: 1.4;
     }
 
     .loading-bar {
-        width: 80%;
+        width: 70%;
+        max-width: 250px;
     }
 }

@@ -127,16 +127,46 @@
     color: var(--color-text-primary);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+    .suit-selector {
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .suit-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
     .card-table {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
     }
 
     .playing-card {
-        padding: 1rem;
+        padding: 0.75rem;
+        border-width: 1px;
+    }
+
+    .card-value,
+    .card-suit {
+        font-size: 1.1rem;
     }
 
     .skill-name {
-        font-size: 1.25rem;
+        font-size: 1rem;
+    }
+
+    .skill-type {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 350px) {
+    .card-table {
+        grid-template-columns: 1fr;
     }
 }

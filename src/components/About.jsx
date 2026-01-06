@@ -36,7 +36,7 @@ const About = () => {
                                 <div className="log-entry">
                                     <span className="log-date">2022 - 2025</span>
                                     <span className="log-title">B.Tech, CSE</span>
-                                    <span className="log-desc">Mahaveer Institute of Science & Technology (69%)</span>
+                                    <span className="log-desc">Mahaveer Institute of Science & Technology (70%)</span>
                                 </div>
                                 <div className="log-entry">
                                     <span className="log-date">2019 - 2022</span>
