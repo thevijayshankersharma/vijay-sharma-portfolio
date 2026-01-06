@@ -99,17 +99,30 @@
     }
 }
 
+/* Glitch Text Wrapper - Contains animation overflow */
+.glitch-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    padding: 2px;
+    /* Small padding to contain animation transforms */
+    margin-bottom: var(--spacing-sm);
+}
+
 /* Hero Typography */
 .glitch-text {
     display: inline-block;
     /* Fixes alignment */
+    font-family: 'Orbitron', sans-serif;
     font-size: clamp(2.5rem, 10vw, 8rem);
-    font-weight: 900;
+    font-weight: 700;
     color: transparent;
-    -webkit-text-stroke: 1px var(--color-accent-primary);
     position: relative;
-    letter-spacing: -5px;
-    margin-bottom: var(--spacing-sm);
+    letter-spacing: -1px;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    /* Use text-stroke with paint-order to minimize overlap */
+    -webkit-text-stroke: 1px var(--color-accent-primary);
+    paint-order: stroke fill markers;
 }
 
 .glitch-text::before {
@@ -117,11 +130,26 @@
     position: absolute;
     top: 0;
     left: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
     color: var(--color-accent-primary);
     opacity: 0.8;
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    transform: translate(-2px, -2px);
     animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: inherit;
+    /* Use text-shadow for outline to match main text */
+    text-shadow:
+        -1px -1px 0 var(--color-accent-primary),
+        1px -1px 0 var(--color-accent-primary),
+        -1px 1px 0 var(--color-accent-primary),
+        1px 1px 0 var(--color-accent-primary),
+        -1px 0 0 var(--color-accent-primary),
+        1px 0 0 var(--color-accent-primary),
+        0 -1px 0 var(--color-accent-primary),
+        0 1px 0 var(--color-accent-primary);
+    white-space: nowrap;
 }
 
 .glitch-text::after {
@@ -129,11 +157,26 @@
     position: absolute;
     top: 0;
     left: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
     color: var(--color-text-primary);
     opacity: 0.8;
     clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-    transform: translate(2px, 2px);
     animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: inherit;
+    /* Use text-shadow for outline to match main text */
+    text-shadow:
+        -1px -1px 0 var(--color-accent-primary),
+        1px -1px 0 var(--color-accent-primary),
+        -1px 1px 0 var(--color-accent-primary),
+        1px 1px 0 var(--color-accent-primary),
+        -1px 0 0 var(--color-accent-primary),
+        1px 0 0 var(--color-accent-primary),
+        0 -1px 0 var(--color-accent-primary),
+        0 1px 0 var(--color-accent-primary);
+    white-space: nowrap;
 }
 
 @keyframes glitch-anim-1 {
@@ -218,12 +261,54 @@
         gap: var(--spacing-md);
         width: 100%;
     }
+
+    .glitch-text {
+        letter-spacing: -1px;
+        -webkit-text-stroke: 0.8px var(--color-accent-primary);
+    }
+
+    .glitch-text::before {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        -webkit-text-stroke: 0.8px var(--color-accent-primary);
+        /* Ensure animation works on mobile */
+        animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    }
+
+    .glitch-text::after {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        -webkit-text-stroke: 0.8px var(--color-accent-primary);
+        /* Ensure animation works on mobile */
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    }
 }
 
 @media (max-width: 400px) {
     .glitch-text {
         font-size: 12vw;
-        /* Responsive override for small screens */
+        letter-spacing: 0px;
+        -webkit-text-stroke: 0.7px var(--color-accent-primary);
+    }
+
+    .glitch-text::before {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        -webkit-text-stroke: 0.7px var(--color-accent-primary);
+        /* Ensure animation works on mobile */
+        animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    }
+
+    .glitch-text::after {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        -webkit-text-stroke: 0.7px var(--color-accent-primary);
+        /* Ensure animation works on mobile */
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
     }
 
     .hero-title {

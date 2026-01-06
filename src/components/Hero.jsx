@@ -23,7 +23,9 @@ const Hero = () => {
                 </div>
 
                 <div className="hero-content">
-                    <h2 className="glitch-text" data-text="PORTFOLIO">PORTFOLIO</h2>
+                    <div className="glitch-wrapper">
+                        <h2 className="glitch-text" data-text="PORTFOLIO">PORTFOLIO</h2>
+                    </div>
 
                     <h1 className="hero-title">
                         VIJAY SHANKER <span className="red-text">SHARMA</span>
