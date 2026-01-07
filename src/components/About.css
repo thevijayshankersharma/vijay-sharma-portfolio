@@ -183,6 +183,17 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .about-visual {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-visual {
+        max-width: 280px;
+    }
 }
 
 @media (max-width: 640px) {

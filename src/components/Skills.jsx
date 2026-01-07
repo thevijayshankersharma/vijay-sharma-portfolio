@@ -69,7 +69,6 @@ const Skills = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
-                            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', width: '100%' }}
                         >
                             {skillSearch[activeSuit].map((skill, index) => (
                                 <motion.div

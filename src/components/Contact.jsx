@@ -104,8 +104,8 @@ const Contact = () => {
                 </motion.form>
 
                 <div className="contact-socials" data-aos="fade-up">
-                    <a href="#" className="social-link">GITHUB</a>
-                    <a href="#" className="social-link">LINKEDIN</a>
+                    <a href="https://github.com/thevijayshankersharma" target="_blank" rel="noopener noreferrer" className="social-link">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/vijay-shanker-sharma/" target="_blank" rel="noopener noreferrer" className="social-link">LINKEDIN</a>
                 </div>
             </div>
         </section>
