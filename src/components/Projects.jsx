@@ -47,13 +47,6 @@ const Projects = () => {
                             className="stage-card"
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
-                            whileHover={{
-                                scale: 1.05,
-                                rotateY: index % 2 === 0 ? 8 : -8,
-                                rotateX: 4,
-                                z: 40,
-                                transition: { type: "spring", stiffness: 400, damping: 15 }
-                            }}
                             transition={{ type: "spring", stiffness: 300, damping: 25 }}
                         >
                             <div className="stage-header">

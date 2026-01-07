@@ -4,8 +4,9 @@
 }
 
 .stages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     padding: 1rem 0;
 }
@@ -20,6 +21,8 @@
     transition: all 0.3s ease;
     overflow: hidden;
     text-decoration: none;
+    flex: 1 1 300px;
+    max-width: 400px;
 }
 
 .stage-card:hover {

@@ -23,6 +23,12 @@ const Skills = () => {
             { name: 'DSA', value: 'K', suit: '♦', type: 'Theory' },
             { name: 'VS Code', value: 'Q', suit: '♦', type: 'Tool' },
             { name: 'OOP', value: 'J', suit: '♦', type: 'Concept' },
+        ],
+        hearts: [
+            { name: 'Teamwork', value: 'A', suit: '♥', type: 'Soft Skill' },
+            { name: 'Problem Solving', value: 'K', suit: '♥', type: 'Soft Skill' },
+            { name: 'Communication', value: 'Q', suit: '♥', type: 'Soft Skill' },
+            { name: 'Adaptability', value: 'J', suit: '♥', type: 'Soft Skill' },
         ]
     };
 
@@ -44,6 +50,10 @@ const Skills = () => {
                             className={`suit-btn ${activeSuit === 'diamonds' ? 'active' : ''}`}
                             onClick={() => setActiveSuit('diamonds')}
                         >CORE & TOOLS</button>
+                        <button
+                            className={`suit-btn ${activeSuit === 'hearts' ? 'active' : ''}`}
+                            onClick={() => setActiveSuit('hearts')}
+                        >SOFT SKILLS</button>
                     </div>
                 </div>
 
@@ -64,13 +74,13 @@ const Skills = () => {
                             {skillSearch[activeSuit].map((skill, index) => (
                                 <motion.div
                                     key={skill.name}
-                                    className={`playing-card ${skill.suit === '♦' ? 'red-suit' : 'black-suit'}`}
+                                    className={`playing-card ${['♦', '♥'].includes(skill.suit) ? 'red-suit' : 'black-suit'}`}
                                     whileHover={{
                                         y: -15,
                                         rotateZ: index % 2 === 0 ? 3 : -3,
                                         scale: 1.05,
                                         boxShadow: "0 15px 40px rgba(255, 0, 51, 0.4)",
-                                        transition: { type: "spring", stiffness: 400, damping: 10 }
+                                        transition: { type: "spring", stiffness: 300, damping: 20 }
                                     }}
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}

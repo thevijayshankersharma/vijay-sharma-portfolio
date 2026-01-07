@@ -6,7 +6,7 @@ import './Scene3D.css';
 
 const Card = ({ position, rotation, color, delay }) => {
     const mesh = useRef();
-    
+
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
         mesh.current.rotation.y = rotation[1] + Math.sin(time + delay) * 0.2;
@@ -17,8 +17,8 @@ const Card = ({ position, rotation, color, delay }) => {
         <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
             <mesh position={position} rotation={rotation} ref={mesh}>
                 <boxGeometry args={[0.7, 1, 0.02]} />
-                <meshStandardMaterial 
-                    color={color} 
+                <meshStandardMaterial
+                    color={color}
                     emissive={color}
                     emissiveIntensity={0.5}
                     metalness={0.8}
@@ -78,16 +78,15 @@ const Scene3D = () => {
                 <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
                 <color attach="background" args={['#000000']} />
                 <fog attach="fog" args={['#000000', 5, 20]} />
-                
+
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} color="#ff0033" />
                 <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ffffff" />
-                
+
                 <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-                
-                <Cards />
+
                 <Rig />
-                
+
                 <Environment preset="night" />
             </Canvas>
         </div>

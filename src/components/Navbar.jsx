@@ -1,15 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (date) => {
+    return date.toLocaleTimeString('en-US', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  };
 
   const navItems = [
-    { name: 'HOME', href: '#home' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'SKILLS', href: '#skills' },
-    { name: 'PROJECTS', href: '#projects' },
-    { name: 'CONTACT', href: '#contact' },
+    { name: 'HOME', href: '#home', suit: '♠' },
+    { name: 'ABOUT', href: '#about', suit: '♥' },
+    { name: 'SKILLS', href: '#skills', suit: '♣' },
+    { name: 'PROJECTS', href: '#projects', suit: '♦' },
+    { name: 'CONTACT', href: '#contact', suit: '♠' },
   ];
 
   return (
@@ -27,9 +42,12 @@ const Navbar = () => {
               className="nav-link"
               onClick={() => setMenuOpen(false)}
             >
-              {item.name}
+              <span className="nav-suit">{item.suit}</span> {item.name}
             </a>
           ))}
+          <div className="nav-clock">
+            {formatTime(time)}
+          </div>
         </div>
 
         <button

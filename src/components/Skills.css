@@ -9,6 +9,7 @@
     justify-content: center;
     gap: 2rem;
     /* Increased spacing */
+    margin-top: 3rem;
     margin-bottom: var(--spacing-2xl);
     flex-wrap: wrap;
 }

@@ -10,21 +10,21 @@ const Loader = ({ onLoadingComplete }) => {
         const sequence = async () => {
             // Step 1: Connecting
             setGlitch(true);
-            await new Promise(r => setTimeout(r, 1000));
+            await new Promise(r => setTimeout(r, 600));
 
             // Step 2: Identity Verified
             setText('IDENTITY VERIFIED: VIJAY SHARMA');
             setGlitch(true);
-            await new Promise(r => setTimeout(r, 1000));
+            await new Promise(r => setTimeout(r, 800));
 
             // Step 3: System Ready
             setText('SYSTEM READY');
             setGlitch(true);
-            await new Promise(r => setTimeout(r, 800));
+            await new Promise(r => setTimeout(r, 600));
 
             // Exit
             setExit(true);
-            await new Promise(r => setTimeout(r, 500));
+            await new Promise(r => setTimeout(r, 400));
             onLoadingComplete();
         };
 
