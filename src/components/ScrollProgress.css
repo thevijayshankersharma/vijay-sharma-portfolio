@@ -3,9 +3,9 @@
     top: 0;
     left: 0;
     height: 4px;
+    width: 100%;
     background: var(--color-accent-primary);
     z-index: 99999;
-    transition: width 0.1s ease;
     box-shadow: 0 0 10px var(--color-accent-primary);
 }
 
